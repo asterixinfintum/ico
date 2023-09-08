@@ -1,0 +1,19 @@
+@function scaleValue($value) {
+  @return calc(
+    #{$value} * (clamp(350px, 100vw, 3840px) / var(--ideal-viewport-width))
+  );
+}
+
+$white: #fff;
+$background: #17181c;
+$border: .3px solid rgba($white, .2);
+$border-radius: #{scaleValue(5)};
+$light-white: rgba($white, .5);
+$grey: #3f3f44;
+$light-grey: rgba(#3f3f44, .3);
+$light-black: rgba(#111116, .6);
+$green: rgb(176, 220, 115);
+$red: rgb(244, 91, 91);
+$disclaimer-color: #080808;
+$line-height: #{scaleValue(25)};
+$gold: #D4AF37;

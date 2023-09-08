@@ -1,0 +1,28 @@
+.light-white {
+    color: $light-white
+}
+
+.bold-1 {
+    font-weight: 500;
+}
+
+.spinner {
+    animation: spin-animation(2s, ease-in-out) infinite;
+}
+
+.img-cover {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+  @include content;
+}
+
+.green {
+    color: $green;
+}
+.red {
+  color: $red;
+}

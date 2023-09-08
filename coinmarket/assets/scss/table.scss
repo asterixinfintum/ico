@@ -1,0 +1,150 @@
+.table {
+
+    @media only screen and (max-width: 414px) {
+        overflow-x: scroll;
+        width: #{scaleValue(4000)};
+    }
+
+    &__header {
+        display: grid;
+        background: $grey;
+        height: #{scaleValue(40)};
+        border-bottom: $border;
+        font-weight: 500;
+        font-size: #{scaleValue(10)};
+        text-transform: uppercase;
+
+        @media only screen and (max-width: 414px) {
+            font-size: #{scaleValue(47)};
+            height: auto;
+        }
+
+        &--subject {
+            grid-column: 1 / span 3;
+            display: flex;
+            align-items: center;
+            border-right: $border;
+            padding-left: #{scaleValue(10)};
+            justify-content: flex-start;
+
+            & span {
+                display: flex;
+                align-items: center;
+
+                &.img {
+                    height: #{scaleValue(10)};
+                    width: #{scaleValue(10)};
+                    margin-right: #{scaleValue(5)};
+
+                    @media only screen and (max-width: 414px) {
+                        height: #{scaleValue(40)};
+                        width: #{scaleValue(40)};
+                        margin-right: #{scaleValue(15)};
+                    }
+
+                    & img {
+                        object-fit: cover;
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                &.number {
+                    margin-right: #{scaleValue(10)};
+                }
+            }
+        }
+
+        &--area {
+            display: flex;
+            align-items: center;
+            text-align: right;
+            border-right: $border;
+            padding-right: #{scaleValue(10)};
+            justify-content: flex-end;
+
+            overflow: hidden;
+
+            @media only screen and (max-width: 414px) {
+                padding: #{scaleValue(50)} 0;
+                padding-right: #{scaleValue(30)};
+            }
+        }
+    }
+
+    &__item {
+        background: transparent;
+        font-weight: 300;
+        text-transform: capitalize;
+        font-size: #{scaleValue(12)};
+        cursor: pointer;
+        transition: all .4s ease;
+
+        @media only screen and (max-width: 414px) {
+            font-size: #{scaleValue(50)};
+        }
+
+        &:hover {
+            background: rgba($light-grey, .2);
+        }
+    }
+
+    &__paginator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media only screen and (max-width: 414px) {
+            position: fixed;
+            bottom: 0;
+        }
+
+        &--number {
+            cursor: pointer;
+            color: $background;
+            background: rgba($white, .8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: #{scaleValue(12)};
+            border-radius: $border-radius;
+            width: #{scaleValue(130)};
+            height: #{scaleValue(30)};
+            font-size: #{scaleValue(11)};
+
+            @media only screen and (max-width: 414px) {
+                font-size: #{scaleValue(50)};
+                width: #{scaleValue(480)};
+                height: #{scaleValue(160)};
+            }
+
+            & span {
+                display: flex;
+                align-items: center;
+
+                &:nth-child(1) {
+                    margin-right: #{scaleValue(7)};
+                }
+            }
+
+            & svg {
+                height: #{scaleValue(16)};
+                width: #{scaleValue(16)};
+                fill: $background;
+
+                @media only screen and (max-width: 414px) {
+                    height: #{scaleValue(50)};
+                    width: #{scaleValue(50)};
+                }
+            }
+        }
+    }
+}
+
+.decimal {
+    color: #1f4db3
+}
+
+.num {
+    color: #008000
+}

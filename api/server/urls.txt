@@ -1,0 +1,17 @@
+https://api.poloniex.com/v2/currencies/AAVE
+
+https://api.poloniex.com/v2/currencies
+
+https://api.poloniex.com/markets/ticker24h
+
+https://api.poloniex.com/markets
+
+https://api.poloniex.com/markets/TRX_USDC/price
+
+https://api.poloniex.com/markets/price
+
+https://api.poloniex.com/markets/LTC_BTC/orderBook
+
+https://api.poloniex.com/markets/LTC_BTC/trades
+
+https://api.poloniex.com/markets/collateralInfo
