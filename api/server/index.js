@@ -27,17 +27,18 @@ app.use(express.urlencoded({
 }));
 
 const {
-    ExtractedDataRoute,
-    PoloniexDateRoute,
-    GetUniswapData,
-    TransactionRoute
+  ExtractedDataRoute,
+  PoloniexDateRoute,
+  GetUniswapData,
+  TransactionRoute
 } = extractedData;
 
 const {
   makeAPIRequest,
   fetchTokensFromUniswap,
   fetchProjectsFromUniswap,
-  alchemydata
+  alchemydata,
+  saveItemsToMongoDB
 } = Populations;
 
 async function callAPIs() {
@@ -51,14 +52,11 @@ async function callAPIs() {
   alchemydata();
 }
 
-if (process.env.DB === 'mongodb://coinmarket:27017/api1') {
-  //callAPIs()
-  console.log('hello there')
-}
+//callAPIs()
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(ExtractedDataRoute);
 app.use(PoloniexDateRoute);
@@ -68,23 +66,32 @@ app.use(TransactionRoute);
 const PORT = process.env.PORT || 8080;
 const server = http.createServer(app);
 
-app.get('/', function(req, res) {
-    res.send('hello world');
+app.get('/', function (req, res) {
+  res.send('hello world');
 });
 
+const filePath = path.join(__dirname, '../server/populations/cryptoicos/outputjson2.json');
+
+
+
 mongoose.connect(process.env.DB, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    socketTimeoutMS: 1000
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  socketTimeoutMS: 1000
 }).then(() => {
-    console.log('connected to database');
+  console.log('connected to database', process.env.DB);
 
+  if (process.env.DB === 'mongodb://coinmarket:27017/api1') {
+    callAPIs()
+    saveItemsToMongoDB(filePath);
+    console.log('hello there')
+  }
 
-    server.listen(PORT, async (error) => {
-      if (error) {
-        return error;
-      }
-    
-      return console.log(`server started on port here ${PORT}`);
-    });
+  server.listen(PORT, async (error) => {
+    if (error) {
+      return error;
+    }
+
+    return console.log(`server started on port here ${PORT}`);
+  });
 });

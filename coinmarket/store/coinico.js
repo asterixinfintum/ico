@@ -24,22 +24,22 @@ export const actions = {
         const base = await response.json();
         const data = base;
 
-        const IntelliChain = {
+        const BvXIco = {
           About: '',
           Additional_details: '',
           DataDirect: '',
-          DateFrom: 'Apr 23, 2021',
-          DateTo: 'Jun 24, 2023',
+          DateFrom: 'March 5, 2025',
+          DateTo: 'Jun 24, 2025',
           Label: '',
-          Name: 'IntelliChain',
+          Name: 'BvxToken Launch',
           PeriodValue: '92 % completed',
-          Raised: '$50b',
+          Raised: '$100m',
           subject_coin: true,
-          marketCap: '$5b'
+          marketCap: '$193m'
         }
 
         const index = 4;
-        data.splice(index, 0, IntelliChain);
+        data.splice(index, 0, BvXIco);
         commit('SET_EXTRACTED_DATA', data);
       } else {
         throw new Error('Failed to fetch extracted data');

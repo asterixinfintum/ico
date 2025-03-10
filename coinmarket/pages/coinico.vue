@@ -97,9 +97,9 @@
     methods: {
       goToIcoItem(item, category) {
 
-        if (item["Name"] === 'IntelliChain') {
+        if (item["Name"] === 'BvxToken Launch') {
           this.$router.push({
-            path: "/IntelliChainisthenextgenerationcryptocurrencyplatformthatharnessesthepowerofAItorevolutionizethewaywetransactandinteractwithdigitalassets",
+            path: "/bvxt",
               query: {
                 category,
                 about: item["About"],

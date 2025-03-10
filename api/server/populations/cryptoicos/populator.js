@@ -68,7 +68,7 @@ function saveItemsToMongoDB(filePath) {
   });
 }
 
-/*async function deleteAllData() {
+async function deleteAllData() {
   try {
     await CryptoIco.deleteMany({});
     console.log('All data deleted from the database.');
@@ -77,9 +77,11 @@ function saveItemsToMongoDB(filePath) {
   }
 }
 
-deleteAllData();*/
+//deleteAllData();
 
 const filePath = path.join(__dirname, 'outputjson2.json');
-saveItemsToMongoDB(filePath);
+//saveItemsToMongoDB(filePath);
+
+export default saveItemsToMongoDB;
 
 

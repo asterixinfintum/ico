@@ -46,14 +46,14 @@
                     <span></span>
                     <span>Coin ICOs</span>
                 </div>
-                <div class="sidenav__menuitem" @click="gohere('/tokens')">
+               <!-- <div class="sidenav__menuitem" @click="gohere('/tokens')">
                     <span></span>
                     <span>Explore Tokens</span>
                 </div>
                 <div class="sidenav__menuitem" @click="gohere('/')">
                     <span></span>
                     <span>Explore Projects</span>
-                </div>
+                </div>-->
             </div>
 
             <div class="sidenav__menuarea blockchains">

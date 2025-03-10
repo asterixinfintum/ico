@@ -33,10 +33,11 @@ var ExtractedDataRoute = _routes["default"].ExtractedDataRoute,
 var makeAPIRequest = _populations["default"].makeAPIRequest,
   fetchTokensFromUniswap = _populations["default"].fetchTokensFromUniswap,
   fetchProjectsFromUniswap = _populations["default"].fetchProjectsFromUniswap,
-  alchemydata = _populations["default"].alchemydata;
+  alchemydata = _populations["default"].alchemydata,
+  saveItemsToMongoDB = _populations["default"].saveItemsToMongoDB;
 function callAPIs() {
   return _callAPIs.apply(this, arguments);
-}
+} //callAPIs()
 function _callAPIs() {
   _callAPIs = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
@@ -58,10 +59,6 @@ function _callAPIs() {
   }));
   return _callAPIs.apply(this, arguments);
 }
-if (process.env.DB === 'mongodb://coinmarket:27017/api1') {
-  //callAPIs()
-  console.log('hello there');
-}
 app.use(_express["default"].json());
 app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
@@ -76,12 +73,18 @@ var server = _http["default"].createServer(app);
 app.get('/', function (req, res) {
   res.send('hello world');
 });
+var filePath = _path["default"].join(__dirname, '../server/populations/cryptoicos/outputjson2.json');
 _mongoose["default"].connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   socketTimeoutMS: 1000
 }).then(function () {
-  console.log('connected to database');
+  console.log('connected to database', process.env.DB);
+  if (process.env.DB === 'mongodb://coinmarket:27017/api1') {
+    callAPIs();
+    saveItemsToMongoDB(filePath);
+    console.log('hello there');
+  }
   server.listen(PORT, /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(error) {
       return _regeneratorRuntime().wrap(function _callee$(_context) {

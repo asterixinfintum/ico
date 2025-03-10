@@ -8,12 +8,14 @@ var _populator = _interopRequireDefault(require("./poloniex/populator"));
 var _tokens = _interopRequireDefault(require("./uniswap/tokens"));
 var _projects = _interopRequireDefault(require("./uniswap/projects"));
 var _alchemydata = _interopRequireDefault(require("./alchemy/alchemydata"));
+var _populator2 = _interopRequireDefault(require("./cryptoicos/populator"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 var populations = {
   makeAPIRequest: _populator["default"],
   fetchTokensFromUniswap: _tokens["default"],
   fetchProjectsFromUniswap: _projects["default"],
-  alchemydata: _alchemydata["default"]
+  alchemydata: _alchemydata["default"],
+  saveItemsToMongoDB: _populator2["default"]
 };
 var _default = populations;
 exports["default"] = _default;
