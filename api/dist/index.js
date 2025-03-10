@@ -80,7 +80,7 @@ _mongoose["default"].connect(process.env.DB, {
   socketTimeoutMS: 1000
 }).then(function () {
   console.log('connected to database', process.env.DB);
-  if (process.env.DB === 'mongodb://coinmarket:27017/api1') {
+  if (process.env.DB === 'mongodb://db:27017/api1') {
     callAPIs();
     saveItemsToMongoDB(filePath);
     console.log('hello there');

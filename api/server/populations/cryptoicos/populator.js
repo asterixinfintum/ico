@@ -22,13 +22,13 @@ function convertAndExtract(htmlString) {
     return $.html();
   }
 
-mongoose.connect("mongodb://127.0.0.1:27017/ico-api", { useNewUrlParser: true, useUnifiedTopology: true })
+/*mongoose.connect("mongodb://127.0.0.1:27017/ico-api", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
     console.error('Failed to connect to MongoDB:', error);
-  });
+  });*/
 
 function saveItemsToMongoDB(filePath) {
   fs.readFile(filePath, 'utf8', (err, data) => {

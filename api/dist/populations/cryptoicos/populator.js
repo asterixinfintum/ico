@@ -28,14 +28,15 @@ function returnHTMLString(htmlString) {
   var $ = cheerio.load(htmlString);
   return $.html();
 }
-mongoose.connect("mongodb://127.0.0.1:27017/ico-api", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(function () {
-  console.log('Connected to MongoDB');
-})["catch"](function (error) {
-  console.error('Failed to connect to MongoDB:', error);
-});
+
+/*mongoose.connect("mongodb://127.0.0.1:27017/ico-api", { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB:', error);
+  });*/
+
 function saveItemsToMongoDB(filePath) {
   fs.readFile(filePath, 'utf8', function (err, data) {
     if (err) {

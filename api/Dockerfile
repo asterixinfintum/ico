@@ -13,7 +13,7 @@ RUN npm install
 # Copy the rest of the app source code to the working directory
 COPY . .
 
-ENV DB=mongodb://coinmarket:27017/api1
+ENV DB=mongodb://db:27017/api1
 ENV PORT 8001
 
 # Expose a port that the app will listen on
